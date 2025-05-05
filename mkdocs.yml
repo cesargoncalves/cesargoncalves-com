@@ -1,0 +1,54 @@
+site_name: César Gonçalves
+site_url: https://www.cesargoncalves.com
+copyright: Copyright &copy; 2025 César Gonçalves
+
+use_directory_urls: false
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.tracking
+    - navigation.footer
+    - toc.follow
+  palette:
+    # Dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: deep orange
+      accent: deep purple
+    # Light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: deep orange
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: material/home
+
+plugins:
+  - search
+  - blog:
+      blog_toc: true
+      post_url_format: "{slug}"
+  - tags
+
+extra:
+  social:
+    - icon: fontawesome/brands/keybase
+      link: https://keybase.io/cesargoncalves
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/cesar-goncalves/
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
