@@ -1,0 +1,107 @@
+site_name: CESAR GONCALVES
+site_url: https://www.cesargoncalves.com
+site_description: Personal blog
+
+repo_name: cesargoncalves-com
+repo_url: https://github.com/cesargoncalves/cesargoncalves-com
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2025 César Gonçalves
+
+#use_directory_urls: false
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  features:
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      #primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: material/home
+  favicon: assets/favicon.ico
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - blog:
+      blog_toc: true
+      post_url_format: "{slug}"
+  - tags
+  #- rss:
+  #    match_path: "blog/posts/.*"
+  #    pretty_print: false
+  #    rss_feed_enabled: true
+  #    date_from_meta:
+  #      as_creation: date.created
+  #      as_update: date.updated
+  - glightbox:
+      touchNavigation: false
+      loop: false
+      effect: zoom
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - no-glightbox
+  - social:
+      cards_layout_options:
+        background_color: "#0F172A"
+        #background_image: layouts/background.png
+  - minify:
+      minify_html: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/cesargoncalves
+    - icon: fontawesome/brands/keybase
+      link: https://keybase.io/cesargoncalves
+    - icon: fontawesome/brands/github
+      link: https://github.com/cesargoncalves
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/cesar-goncalves/
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
