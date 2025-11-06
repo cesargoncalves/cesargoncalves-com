@@ -1,0 +1,23 @@
+/*
+https://github.com/squidfunk/mkdocs-material/issues/2163#issuecomment-752916358
+https://github.com/squidfunk/mkdocs-material/discussions/6185#discussioncomment-12652384
+*/
+
+h1#home,
+h1#about,
+h1#blog {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Rounded pill for theme toggle */
+.md-header__option .md-icon {
+  padding: .25rem; border-radius: 999px;
+}
+.md-header__option .md-icon:hover {
+  background: var(--md-default-fg-color--lightest);
+}
