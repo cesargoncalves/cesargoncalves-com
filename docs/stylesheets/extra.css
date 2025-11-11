@@ -21,3 +21,244 @@ h1#blog {
 .md-header__option .md-icon:hover {
   background: var(--md-default-fg-color--lightest);
 }
+
+/* ===== Color schemes ===== */
+
+:root,
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: hsl(0, 0%, 98%);
+  --md-primary-fg-color: hsl(0, 0%, 100%);
+  --md-primary-fg-color--light: hsl(209, 100%, 65%);
+  --md-primary-fg-color--dark: hsl(209, 100%, 35%);
+  --md-primary-bg-color: hsla(0, 2%, 12%, 0.75);
+  --md-primary-bg-color--light: hsla(0, 0%, 0%, 0.54);
+  --md-accent-fg-color: hsl(209, 100%, 35%);
+  --pg-light-border: hsl(220, 13%, 91%);
+  --hb-hero-color: hsl(0, 0%, 18%);
+  --link-accent: hsl(209, 100%, 65%);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: hsl(228, 11%, 9%);
+  --md-primary-fg-color: hsla(240, 10%, 4%, 0.5);
+  --md-primary-fg-color--light: hsl(209, 100%, 65%);
+  --md-primary-fg-color--dark: hsl(209, 100%, 80%);
+  --md-primary-bg-color: hsla(0, 0%, 0%, 0.75);
+  --md-primary-bg-color--light: hsla(0, 0%, 0%, 0.54);
+  --md-accent-fg-color: hsl(209, 100%, 80%);
+  --pg-light-border: hsl(0, 0%, 18%);
+  --hb-hero-color: hsl(209, 100%, 65%);
+  --link-accent: hsl(209, 100%, 65%);
+}
+
+/* Apply consistent link color */
+[data-md-color-scheme] > * {
+  --md-typeset-a-color: var(--link-accent);
+}
+
+/* ===== Header gradient (dark mode only) ===== */
+
+[data-md-color-scheme="slate"] .header-gradient {
+  position: absolute;
+  z-index: -99;
+  width: 100%;
+  height: 30.5vh;
+  transform: rotate(180deg);
+  filter: blur(100px);
+  background: radial-gradient(
+    70.81% 208.07% at 49.97% 160.07%,
+    rgba(0, 78, 150, 0.18) 0%,
+    rgba(2, 24, 45, 0) 100%
+  );
+}
+
+/* Remove sticky nav backgrounds that clash with gradient */
+.md-nav--secondary .md-nav__title,
+.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+  background: none !important;
+  box-shadow: none !important;
+  position: unset !important;
+}
+
+/* ===== Header & tabs (opaque, no blur) ===== */
+
+/* Remove default shadow */
+.md-header[data-md-state="shadow"],
+.md-header--shadow {
+  box-shadow: none;
+}
+
+/* Solid backgrounds - light mode */
+.md-header,
+.md-tabs {
+  background-color: hsl(0, 0%, 100%);
+}
+
+/* Solid backgrounds - dark mode */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: hsl(228, 11%, 12%);
+}
+
+/* Bottom border on navbar (no border between header and tabs) */
+header.md-header {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+nav.md-tabs {
+  border: none !important;
+  border-bottom: 1px solid var(--pg-light-border) !important;
+  box-shadow: none !important;
+}
+
+/* Soften button/icon colors */
+.md-header__button {
+  color: var(--md-default-fg-color--light);
+}
+
+/* White text in dark mode */
+[data-md-color-scheme="slate"] .md-header > *,
+[data-md-color-scheme="slate"] .md-tabs {
+  color: hsl(0, 0%, 100%);
+}
+
+/* ===== Cards (home/landing pages) ===== */
+
+/* Hover/focus states - no shadow, subtle border */
+.md-typeset .grid.cards > ol > li:focus-within,
+.md-typeset .grid.cards > ol > li:hover,
+.md-typeset .grid.cards > ul > li:focus-within,
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid > .card:focus-within,
+.md-typeset .grid > .card:hover {
+  box-shadow: none !important;
+  border-color: hsla(209, 100%, 65%, 0.5);
+}
+
+/* Rounded corners */
+.md-typeset .grid.cards > ol > li,
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border-radius: 7px;
+}
+
+/* Card background color */
+.md-typeset .grid.cards > ul > li {
+  background-color: var(--md-primary-fg-color);
+}
+
+/* ===== Mobile sidebar ===== */
+
+/* White drawer title in dark mode */
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__title[for="__drawer"] {
+  color: hsl(0, 0%, 100%);
+}
+
+/* Source link styling */
+[data-md-color-scheme="default"] .md-nav__source {
+  background-color: var(--md-primary-fg-color--light);
+  color: #fff;
+}
+
+/* ===== Search box (normal size with frosted glass) ===== */
+
+@media (min-width: 60em) {
+  .md-search__overlay {
+    background-color: transparent;
+  }
+
+  /* Light theme: translucent white */
+  [data-md-color-scheme="default"] .md-search__form {
+    background-color: hsla(0, 0%, 100%, 0.75) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: none;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border-radius: 6px;
+  }
+
+  /* Dark theme: translucent dark */
+  [data-md-color-scheme="slate"] .md-search__form {
+    background-color: hsla(240, 10%, 10%, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border-radius: 6px;
+  }
+
+  /* Rounded top when expanded */
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+    border-radius: 6px 6px 0 0;
+  }
+
+  /* Search results dropdown */
+  [dir="ltr"] .md-search__output {
+    top: initial;
+    border-radius: 0 0 6px 6px;
+  }
+
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__output {
+    box-shadow: 0 0 .6rem hsla(0, 0%, 0%, 0.07);
+  }
+
+  /* Light theme: dark text */
+  [data-md-color-scheme="default"] .md-search__input {
+    color: hsl(223, 15%, 16%) !important;
+  }
+
+  [data-md-color-scheme="default"] .md-search__icon,
+  [data-md-color-scheme="default"] .md-search__input::placeholder {
+    color: hsl(223, 10%, 45%) !important;
+  }
+
+  /* Dark theme: white text */
+  [data-md-color-scheme="slate"] .md-search__input {
+    color: hsl(0, 0%, 100%) !important;
+  }
+
+  [data-md-color-scheme="slate"] .md-search__icon,
+  [data-md-color-scheme="slate"] .md-search__input::placeholder {
+    color: hsl(0, 0%, 80%) !important;
+  }
+}
+
+/* ===== Footer ===== */
+
+.md-footer {
+  margin-top: 1rem;
+  border-top: 1px solid var(--pg-light-border);
+}
+
+/* ===== Buttons ===== */
+
+.md-main .md-button--primary {
+  color: var(--md-primary-fg-color);
+  background-color: var(--hb-hero-color);
+  border-color: transparent;
+}
+
+.md-typeset .md-button:focus {
+  background: transparent;
+}
+
+/* ===== Utilities ===== */
+
+.accent {
+  color: var(--md-typeset-a-color);
+}
+
+.md-nav__link svg {
+  width: 22px;
+}
+
+.noJs {
+  display: none;
+}
+
+.twemoji {
+  --md-icon-size: 1.225em !important;
+  height: var(--md-icon-size);
+  width: var(--md-icon-size);
+}
