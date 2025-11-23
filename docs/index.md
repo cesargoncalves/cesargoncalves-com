@@ -17,7 +17,7 @@ hide:
   </div>
   <div class="img-wrapper">
     <img
-      src="https://github.com/cesargoncalves.png"
+      src="assets/images/avatar.jpg"
       alt="César Gonçalves"
       width="250"
       height="250"
